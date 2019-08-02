@@ -1,6 +1,7 @@
 import React from 'react';
 import BurgerLayers from "./BurgerLayers"
 import ChoiceHandler from "./ChoiceHandler"
+import SubmitOrder from "./SubmitOrder"
 import "./App.css"
 
 function App() {
@@ -11,6 +12,7 @@ function App() {
       </header>
       <BurgerLayers />
       <ChoiceHandler />
+      <SubmitOrder />
     </div>
   )
 }

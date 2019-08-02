@@ -1,3 +1,51 @@
-.actions {
+.action-box {
+    width: 90%;
+    margin: -5px;
+    background: rgb(233, 174, 125);
+    border-radius: 10px;
+    padding: 5px;
+    display: inline-flex;
+    flex-direction:row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.action {
+    height: 50px;
+    width: 150px;
+    background: rgb(207, 120, 49);
+    border-radius: 10px;
+    margin: 4px;
+}
+
+.action > p {
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 20px;
+}
+
+.action > button {
+    width: 50px;
+    height: 25px;
+    margin: auto 2px;
+    background: rgba(0, 8, 0, 0.301);
+}
+
+.current-price {
+    width: 80%;
+    margin: 10px auto;
+    padding: 5px;
+    background: rgb(207, 120, 49);
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
     
+}
+
+.current-price > h1 {
+    font-size: 15px;
+}
+
+.current-price > p {
+    margin-left: 5px;
 }

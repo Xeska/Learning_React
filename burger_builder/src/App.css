@@ -23,5 +23,6 @@ header > h1 {
     margin: auto;
     margin-top: 2px;
     border: solid rgb(185, 185, 185) 2px;
-    box-shadow: 5px 5px #999999
+    box-shadow: 5px 5px #999999;
+    background: rgb(255, 208, 169);
 }

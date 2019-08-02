@@ -1,34 +1,23 @@
-import React, { Component } from "react"
+import React from "react"
 
-class IngredientHandler extends Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            number: 0
-        }
-        this.handleClick = this.handleClick.bind(this)
-    }
-
-    handleClick(action) {
-        action === "minus" ?
-        this.setState(
-            this.state.number - 1 < 0 ? {number: 0} : {number: this.state.number - 1}
-            )
-        :
-        this.setState(
-            {number: this.state.number + 1}
-            )
-    }
-
-    render() {
-        return (
-            <div>
-                <p>{this.props.name.toUpperCase()}: {this.state.number}</p>
-                <button className="button-plus" onClick={() => this.handleClick("plus")}>+</button>
-                <button className="button-minus" onClick={() => this.handleClick("minus")}>-</button>
+function IngredientHandler(props) {
+    return (
+            <div className="action">
+                <p>{props.name.toUpperCase()}: {props.data.count[props.name]}</p>
+                <button 
+                    name={props.name} 
+                    value="plus" 
+                    className="button-plus" 
+                    onClick={props.handleClick}>+
+                </button>
+                <button
+                    name={props.name} 
+                    value="minus" 
+                    className="button-minus" 
+                    onClick={props.handleClick}>-
+                </button>
             </div>
-        )
-    }
+    )
 }
 
 export default IngredientHandler
