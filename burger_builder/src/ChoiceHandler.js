@@ -3,8 +3,8 @@ import IngredientHandler from "./IngredientHandler"
 import "./ChoiceHandler.css"
 
 class ChoiceHandler extends Component {
-    constructor() {
-        super()
+    constructor(props) {
+        super(props)
         this.state = {
             price: 4,
             count: {
@@ -18,13 +18,19 @@ class ChoiceHandler extends Component {
                 bacon: 0.60,
                 cheese: 0.45,
                 meat: 0.85
-            }
+            },
+            layers: []
         }
         this.handleClick = this.handleClick.bind(this)
     }
 
+    sendData = () => {
+        this.props.callbackFunction(this.state.layers)
+    }
+
     handleClick(event) {
         const {name, value} = event.target
+        const copyLayers = [...this.state.layers]
 
         if (value === "minus")
         {
@@ -40,6 +46,8 @@ class ChoiceHandler extends Component {
                     price: prevState.price - prevState.unitPrice[name]
                 })
             )
+            copyLayers.splice(copyLayers.indexOf(name), 1)
+            this.setState({layers: copyLayers})
             } else {
                 this.setState((prevState) => ({
                         count: {
@@ -61,7 +69,12 @@ class ChoiceHandler extends Component {
                     price: prevState.price + prevState.unitPrice[name]
                 })
             )
+            this.setState((prevState) => ({
+                    layers: [name, ...prevState.layers]
+                })
+            )
         }
+        this.sendData()
     }
 
     render() {

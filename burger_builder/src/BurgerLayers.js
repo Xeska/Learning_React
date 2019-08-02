@@ -1,18 +1,29 @@
 import React from "react"
 import "./BurgerLayers.css"
 
-function BurgerLayers() {
+function BurgerLayers(props) {
+    let wholeLayers = ""
+
+    for (var i = 0; i < props.layers.length; i++)
+    {
+        if (props.layers[i] === "salad" 
+        || props.layers[i] === "bacon" 
+        || props.layers[i] === "cheese" 
+        || props.layers[i] === "meat") {
+            wholeLayers = wholeLayers +
+                `<div className=${props.layers[i]}></div>`
+            
+        }
+    }
+    
     return (
-      <div className="burger">
-        <div className="top-bread">
-            <div className="seeds"></div>
+        <div className="burger">
+            <div className="top-bread">
+                <div className="seeds"></div>
+            </div>
+            {wholeLayers}
+            <div className="base-bread"></div>
         </div>
-        <div className="salad"></div>
-        <div className="bacon"></div>
-        <div className="cheese"></div>
-        <div className="meat"></div>
-        <div className="base-bread"></div>
-    </div>
     )
 }
 
