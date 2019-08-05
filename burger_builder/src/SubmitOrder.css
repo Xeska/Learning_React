@@ -1,7 +1,49 @@
-.submit-button > button {
-    width: 50%;
+.receipt {
+    background: lightgrey;
+    margin-top: 14px;
     height: 30px;
+}
+
+.receipt button {
+    width: 50%;
+    height: 25px;
     border-radius: 10px;
     background: lightgreen;
-    margin: 12px auto;
+    margin: 4px auto;
+}
+
+.receipt h1 {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.receipt p {
+    margin: 10px 5px;
+    font-size: 20px;
+    border: 1px solid black;
+}
+
+.lineholder {
+    margin: 2px auto;
+    width: 200px;
+    border: 0px solid black;
+    overflow: hidden;
+    position: relative;
+}
+.name {
+    float: left;
+    border: 1px solid white;
+    background-color: white;
+}
+.price {
+    float: right;
+    border: 0px solid gray;
+    background-color: white;
+}
+.dots {
+    margin: auto 5px;
+    position: absolute;
+    width: 100%;
+    overflow: hidden;
+    z-index: -1;
 }

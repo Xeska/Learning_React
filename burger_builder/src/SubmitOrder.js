@@ -26,24 +26,26 @@ class SubmitOrder extends Component {
 
         for (let i = 0; i < Object.keys(count).length; i++) {
             if (count[Object.keys(count)[i]] !== 0) {
-                let mult = count[Object.keys(count)[i]] * unitPrice[Object.keys(unitPrice)[i]]
-                let priceIndex = unitPrice.indexOf(Object.keys(count)[i])
-                check.push(<div key={i}>{count[Object.keys(count)[i]]} x {unitPrice[Object.keys(unitPrice)[priceIndex]]} = {mult.toLocaleString("fr-FR", { style: "currency", currency: "EUR"})}</div>)
+                let mult = count[Object.keys(count)[i]] * unitPrice[Object.keys(count)[i]]
+                check.push(<div key={i} className="lineholder"><div className="name">{count[Object.keys(count)[i]]} x {unitPrice[Object.keys(count)[i]].toLocaleString("fr-FR", { style: "currency", currency: "EUR"})}</div><div className="dots">. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .</div><div className="price">{mult.toLocaleString("fr-FR", { style: "currency", currency: "EUR"})}</div></div>)
             }
         }
 
-        console.log(check);
         return (
-            <div className="submit-button">
+            <div className="receipt">
                 <Modal 
                     show={this.state.show} 
                     handleClose={this.hideModal} 
                     children={this.props.dataToModal}
                 >
                     <h1>Resumé de votre commande:</h1>
-                    <p>1 x Burger: {unitPrice.burger.toLocaleString("fr-FR", { style: "currency", currency: "EUR"})}</p>
-                    {check}
-                    <p>Total: {price}</p>
+                    <div className="lineholder">
+                        <div className="name">Burger</div>
+                        <div className="dots">. . . . . . . . . . . . . . . . . . .</div>
+                        <div className="price">{unitPrice.burger.toLocaleString("fr-FR", { style: "currency", currency: "EUR"})}</div>
+                    </div>
+                    <div>{check}</div>
+                    <p>Total: {price.toLocaleString("fr-FR", { style: "currency", currency: "EUR"})}</p>
                 </Modal>
                 <button onClick={this.showModal}>Confirm your order !</button>
             </div>

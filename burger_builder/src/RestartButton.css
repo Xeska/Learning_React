@@ -1,0 +1,9 @@
+.restart-button {
+    width: 9%;
+    position: absolute;
+    right: 31%;
+    top: 15px;
+    background: linear-gradient(rgb(201, 83, 14), rgb(236, 149, 98));
+    border: 0px;
+    border-radius: 10px;
+}

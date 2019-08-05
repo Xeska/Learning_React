@@ -2,6 +2,7 @@ import React, { Component } from "react"
 import IngredientHandler from "./IngredientHandler"
 import BurgerLayers from "./BurgerLayers"
 import SubmitOrder from "./SubmitOrder"
+import RestartButton from "./RestartButton"
 import "./ChoiceHandler.css"
 
 class ChoiceHandler extends Component {
@@ -25,6 +26,7 @@ class ChoiceHandler extends Component {
             layers: []
         }
         this.handleClick = this.handleClick.bind(this)
+        this.handleRestart = this.handleRestart.bind(this)
     }
 
     handleClick(event) {
@@ -75,9 +77,23 @@ class ChoiceHandler extends Component {
         }
     }
 
+    handleRestart() {
+        for (let i = 0; i < Object.keys(this.state.count).length; i++) {
+            this.setState((prevState) => ({
+                count: {
+                    ...prevState.count,
+                    [Object.keys(prevState.count)[i]]: 0
+                }
+            }))
+        }
+        this.setState({layers: []})
+        this.setState({price: this.state.unitPrice.burger})
+    }
+
     render() {
         return (
             <div>
+                <RestartButton handleRestart={this.handleRestart}/>
                 <BurgerLayers layers={this.state.layers}/>
                 <div className="current-price">
                     <h1>Current Price:</h1>
