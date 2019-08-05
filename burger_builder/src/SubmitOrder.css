@@ -1,0 +1,7 @@
+.submit-button > button {
+    width: 50%;
+    height: 30px;
+    border-radius: 10px;
+    background: lightgreen;
+    margin: 12px auto;
+}

@@ -2,6 +2,7 @@
     height: 330px;
     width: 100%;
     margin: 2px auto;
+    overflow : auto;
 }
 
 .top-bread {
@@ -14,15 +15,15 @@
 }
 
 .seeds {
-    position :absolute;
+    position: relative;
     height: 8px;
     width: 20px;
     background: linear-gradient(#ffe0a8, #dddddd);
     box-shadow: inset -2px 0 #cecece;
     border-radius: 40%;
     transform: rotate(20deg);
-    margin-left: 35px;
-    margin-top: 12px;
+    top: 13px;
+    left: 35px;
 }
 
 .seeds:after {
@@ -34,8 +35,8 @@
     box-shadow: inset -2px 0 #cecece;
     border-radius: 40%;
     transform: rotate(40deg);
-    margin-left: 250%;
-    margin-top: -100%;
+    left: 260%;
+    top: -150%;
 }
 
 .seeds:before {
@@ -47,8 +48,8 @@
     box-shadow: inset -2px 0 #cecece;
     border-radius: 40%;
     transform: rotate(-40deg);
-    margin-left: 500%;
-    margin-top: -150%;
+    left: 500%;
+    top: -350%;
 }
 
 .salad {

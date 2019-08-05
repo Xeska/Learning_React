@@ -1,5 +1,7 @@
 import React, { Component } from "react"
 import IngredientHandler from "./IngredientHandler"
+import BurgerLayers from "./BurgerLayers"
+import SubmitOrder from "./SubmitOrder"
 import "./ChoiceHandler.css"
 
 class ChoiceHandler extends Component {
@@ -14,6 +16,7 @@ class ChoiceHandler extends Component {
                 meat: 0
             },
             unitPrice: {
+                burger: 4.00,
                 salad: 0.30,
                 bacon: 0.60,
                 cheese: 0.45,
@@ -22,10 +25,6 @@ class ChoiceHandler extends Component {
             layers: []
         }
         this.handleClick = this.handleClick.bind(this)
-    }
-
-    sendData = () => {
-        this.props.callbackFunction(this.state.layers)
     }
 
     handleClick(event) {
@@ -74,12 +73,12 @@ class ChoiceHandler extends Component {
                 })
             )
         }
-        this.sendData()
     }
 
     render() {
         return (
             <div>
+                <BurgerLayers layers={this.state.layers}/>
                 <div className="current-price">
                     <h1>Current Price:</h1>
                     <p>{this.state.price.toLocaleString("fr-FR", { style: "currency", currency: "EUR"})}</p>
@@ -107,6 +106,7 @@ class ChoiceHandler extends Component {
                     handleClick={this.handleClick}
                 />
                 </div>
+                <SubmitOrder dataToModal={this.state}/>
             </div>
         )
     }
