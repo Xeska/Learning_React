@@ -1,0 +1,7 @@
+.user-checkbox {
+    margin: 5px;
+}
+
+.user-checkbox > label {
+    margin-right: 5px;
+}

@@ -1,0 +1,11 @@
+header {
+    font-weight: bold;
+    font-size: 40px;
+    background: linear-gradient(darkblue, lightblue);
+    color: rgb(0, 0, 0);
+    text-align: center;
+    letter-spacing: 10px;
+    text-shadow: 3px 3px grey;
+    border-radius: 50px;
+    margin: 10px 5px;
+}

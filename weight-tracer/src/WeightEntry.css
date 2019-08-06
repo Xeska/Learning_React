@@ -1,0 +1,25 @@
+.weight-entry {
+    background: rgb(187, 224, 255);
+    margin: 10px;
+    padding: 5px;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.weight-entry > * {
+    margin: 5px auto;
+}
+
+.weight-entry > label {
+    background: rgb(187, 224, 255);
+}
+
+.weight-input {
+    width: 70px;
+    text-align: center;
+}
+
+.weight-entry-label {
+    font-size: 19px;
+    text-decoration: underline;
+}
