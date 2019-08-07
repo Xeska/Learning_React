@@ -5,7 +5,7 @@ function WeightEntry(props) {
     let optionArray = [<option key={-1}>{"Username"}</option>]
 
     for (let i = 0; i < props.userList.length; i++) {
-        optionArray = [...optionArray, <option key={i}>{props.userList[i]}</option>]
+        optionArray = [...optionArray, <option key={i}>{props.userList[i].name}</option>]
     }
 
     return (

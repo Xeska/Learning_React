@@ -9,16 +9,33 @@ class App extends Component {
   constructor() {
     super()
     this.state = {
-      userList: ["bboutoil", "caru", "pierre", "paul", "jacques"],
+      userList: [
+        {name: "bboutoil", status: true}, 
+        {name: "anas", status: false}, 
+        {name: "pierre", status :false}, 
+        {name: "paul", status :false}, 
+        {name: "jacques", status: false}
+      ]
     }
+    this.handleChange = this.handleChange.bind(this)
+  }
+
+  handleChange(i) {
+    console.log(this.state.userList)
+    this.setState((prevState) => ({
+      userList: [
+        ...prevState.userList,
+      ]
+    }))
   }
 
   render() {
+    console.log("render", this.state.userList)
     return (
       <div className="App">
         <Header />
         <WeightEntry userList={this.state.userList}/>
-        <UserList userList={this.state.userList}/>
+        <UserList userList={this.state.userList} onChange={this.handleChange}/>
         <p>Graph: ???</p>
         <History userList={this.state.userList}/>
         <br />

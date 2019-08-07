@@ -11,9 +11,9 @@ function History(props) {
     for (let i = 0; i < userList.length; i++) {
         if (weightDatas.find((e) => userList[i] === e.user)) {
             toDisplay = [...toDisplay,
-                <div className="history-card">
-                    <h5 key={-i - 1}>{userList[i]}</h5>
-                    <UserCard key={i} weightDatas={weightDatas} user={userList[i]} />
+                <div key={i} className="history-card">
+                    <h5>{userList[i]}</h5>
+                    <UserCard weightDatas={weightDatas} user={userList[i]} />
                 </div>
                 ]
             }

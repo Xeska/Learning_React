@@ -1,20 +1,35 @@
-import React from "react"
+import React, { Component } from "react"
 import UserCheckbox from "./UserCheckbox"
 import "./UserList.css"
 
-function UserList(props) {
-    const { userList } = props
-    let displayList = []
+class UserList extends Component {
+    constructor(props) {
+        super(props)
+        this.state = {
 
-    for (let i = 0; i < userList.length; i++) {
-        displayList = [...displayList, <UserCheckbox key={i} userList={userList} i={i}/>]
+        }
     }
 
-    return (
-        <div className="user-list">
-            {displayList}
-        </div>
-    )
+    render () {
+        const { userList, onChange } = this.props
+        let displayList = []
+
+        for (let i = 0; i < userList.length; i++) {
+            displayList = [...displayList, 
+            <UserCheckbox 
+                key={i} 
+                userList={userList} 
+                i={i}
+                onChange={onChange}
+                checked={userList[i].status}
+            />]
+        }
+        return (
+            <div className="user-list">
+                {displayList}
+            </div>
+        )
+    }
 }
 
 export default UserList
