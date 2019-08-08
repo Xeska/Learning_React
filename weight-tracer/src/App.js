@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Header from "./Header"
 import WeightEntry from "./WeightEntry"
 import UserList from "./UserList"
+import GraphicDisplay from "./GraphicDisplay"
 import History from "./History"
 import "./App.css"
 
@@ -28,14 +29,15 @@ class App extends Component {
   }
 
   render() {
-    console.log("render", this.state.userList)
+    const { userList } = this.state
+
     return (
       <div className="App">
         <Header />
-        <WeightEntry userList={this.state.userList}/>
-        <UserList userList={this.state.userList} onChange={this.handleChange}/>
-        <p>Graph: ???</p>
-        <History userList={this.state.userList}/>
+        <WeightEntry userList={userList}/>
+        <UserList userList={userList} onChange={this.handleChange}/>
+        <GraphicDisplay userList={userList} />
+        <History userList={userList}/>
         <br />
         <br />
         <br />
