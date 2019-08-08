@@ -9,20 +9,24 @@ function History(props) {
     let toDisplay = []
 
     for (let i = 0; i < userList.length; i++) {
-        if (weightDatas.find((e) => userList[i] === e.user)) {
+        if (weightDatas.find((e) => (userList[i].name === e.user && userList[i].status === true))) {
             toDisplay = [...toDisplay,
                 <div key={i} className="history-card">
-                    <h5>{userList[i]}</h5>
-                    <UserCard weightDatas={weightDatas} user={userList[i]} />
+                    <h5>{userList[i].name}</h5>
+                    <UserCard weightDatas={weightDatas} user={userList[i].name} />
                 </div>
                 ]
             }
     }
 
+    const emptyCheckString = <div><p className="empty-check-message">Veuillez selectionner les utilisateurs dont vous souhaitez voir l'historique</p><h5 className="empty-data-message">L'utilisateur doit avoir des données enregistrées pour être affiché</h5></div>
+
     return (
         <div className="history">
             <h3>History: </h3>
-            <div className="history-wrapper">{toDisplay}</div>
+            <div className="history-wrapper">
+                {toDisplay && toDisplay.length === 0 ? emptyCheckString : toDisplay}
+            </div>
         </div>
     )
 }

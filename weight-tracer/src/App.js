@@ -10,7 +10,7 @@ class App extends Component {
     super()
     this.state = {
       userList: [
-        {name: "bboutoil", status: true}, 
+        {name: "bboutoil", status: false}, 
         {name: "anas", status: false}, 
         {name: "pierre", status :false}, 
         {name: "paul", status :false}, 
@@ -20,13 +20,11 @@ class App extends Component {
     this.handleChange = this.handleChange.bind(this)
   }
 
-  handleChange(i) {
-    console.log(this.state.userList)
-    this.setState((prevState) => ({
-      userList: [
-        ...prevState.userList,
-      ]
-    }))
+  handleChange(row) {
+    let copyList = [...this.state.userList]
+
+    copyList[row].status = !copyList[row].status
+    this.setState({userList: copyList})
   }
 
   render() {
