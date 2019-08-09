@@ -13,8 +13,8 @@ class App extends Component {
       userList: [
         {name: "bboutoil", status: false}, 
         {name: "anas", status: false}, 
-        {name: "pierre", status :false}, 
-        {name: "paul", status :false}, 
+        {name: "pierre", status: false}, 
+        {name: "paul", status: false}, 
         {name: "jacques", status: false}
       ]
     }

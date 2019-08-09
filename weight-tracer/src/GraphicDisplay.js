@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import { LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip, Legend } from "recharts"
+import { ResponsiveContainer, LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip, Legend } from "recharts"
 import weightDatas from "./weightDatas"
 import "./GraphicDisplay.css"
 
@@ -19,7 +19,6 @@ class GraphicDisplay extends Component {
         const { dataKey } = op;
         const { opacity }= this.state
 
-        console.log(op)
         this.setState({
             opacity: {...opacity, [dataKey]: 0.5}
         })
@@ -36,72 +35,40 @@ class GraphicDisplay extends Component {
 
     render() {
         const { opacity } = this.state
-        const { userList } = this.props
-        let tmpArray = []
+        const {userList } = this.props
 
-
-        for (let j = 0; j < this.props.userList.length; j++) {
-            tmpArray = [...tmpArray, []]
-            for (let i = 0; i < weightDatas.length; i++) {
-                if (weightDatas[i].user === userList[j].name) {
-                    console.log(i, weightDatas[i], j, userList[j], tmpArray)
-                    tmpArray[j] = [...tmpArray[j], {weight: weightDatas[i].weight, date: weightDatas[i].date}]
-                }
-            }
+        let weightMin = 500
+        let weightMax = 0
+        
+        for (let i = 0; i < userList.length; i++) {
+            let max = Math.max(...weightDatas.map(element => element[userList[i].name]))
+            let min = Math.min(...weightDatas.map(element => element[userList[i].name]))
+            weightMax = max > weightMax ? max : weightMax
+            weightMin = min < weightMin ? min : weightMin
         }
+
+        console.log(weightMax, weightMin)
 
         return (
             <div className="graph">
                 <h3>Graph:</h3>
-                <LineChart width={500} height={400} data={tmpArray[0]} margin={{top: 5, bottom: 5, right: 5, left: 5}}>
-                    <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
-                    <Legend onMouseEnter={this.handleMouseEnter} onMouseLeave={this.handleMouseLeave}/>
-                    <XAxis datakey="weight" />
-                    <YAxis datakey="date" />
-                    <Line name="bboutoil" type="monotone" dataKey="weight" strokeOpacity={opacity.weight} stroke="#dd84d8" />
-                    <Line name="paul" type="monotone" dataKey="weight" strokeOpacity={opacity.weight} stroke="#8884d8" />
-                    <Tooltip />
-                </LineChart>
+                <ResponsiveContainer width="90%" height={400}>
+                    <LineChart data={weightDatas} >
+                        <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
+                        <Legend onMouseEnter={this.handleMouseEnter} onMouseLeave={this.handleMouseLeave}/>
+                        <XAxis datakey="date" />
+                        <YAxis datakey="weight" domain={[weightMin - 5, weightMax + 5]} />
+                        <Line type="monotone" dataKey="bboutoil" strokeOpacity={opacity.weight} stroke="#dd84d8" />
+                        <Line type="monotone" dataKey="paul" strokeOpacity={opacity.weight} stroke="#8884d8" />
+                        <Line type="monotone" dataKey="pierre" strokeOpacity={opacity.weight} stroke="#8884d8" />
+                        <Line type="monotone" dataKey="anas" strokeOpacity={opacity.weight} stroke="#8884d8" />
+                        <Line type="monotone" dataKey="jacques" strokeOpacity={opacity.weight} stroke="#8884d8" />
+                        <Tooltip />
+                    </LineChart>
+                </ResponsiveContainer>
             </div>
         )
     }
 }
 
 export default GraphicDisplay
-
-/* 
-data format:
-
-data = {
-
-    {
-        id: 1,
-        date: "10-02-2019",
-        bboutoil: 48.6,
-        paul: 98.2,
-        jacques: 56.3
-    },
-    {
-        id: 2,
-        date:
-        bboutoil:
-        pierre:
-        paul:
-    },
-    {
-        id: 3,
-        date: 
-        anas:
-        pierre:
-        paul:
-    }
-    etc etc
-
-    Line datakey=bboutoil
-    Line datakey=anas
-    ...
-    LineChart data={data}
-    XAxis date
-    YAxis (nothing ?)
-
-}
