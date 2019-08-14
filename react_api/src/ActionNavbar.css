@@ -1,0 +1,15 @@
+.action-navbar {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    height: 10%;
+    width: 100%;
+    background: black;
+}
+
+.action-navbar-subdiv {
+    flex: auto;
+    margin: auto;
+    background: black;
+    color: rgb(156, 156, 156);
+}
