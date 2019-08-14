@@ -8,7 +8,6 @@ function UserCard(props) {
     let userCard = []
 
     for (let i = 0; i < restrictedTable.length; i++) {
-        console.log(restrictedTable)
         if (restrictedTable[i])
             userCard = [...userCard, <div key={i}><p>{restrictedTable[i][user]}</p><p style={{fontStyle: "italic"}}>({restrictedTable[i].date})</p></div>]
     }

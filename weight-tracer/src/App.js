@@ -38,13 +38,6 @@ class App extends Component {
         <UserList userList={userList} onChange={this.handleChange}/>
         <GraphicDisplay userList={userList} />
         <History userList={userList}/>
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <p>Additionnal features: Delete / Modify an entry, identification via connexion, tri des users par ordre alphabetique</p>
-        <footer>User count: ???, Entry count: ???, Most recent entry: ???(??? min ago)</footer>
       </div>
     )
   }
