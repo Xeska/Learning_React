@@ -1,7 +1,7 @@
 .home-content {
-    margin: 15px auto;
+    margin: 15px 5%;
     text-align: center;
-    flex-grow: 1;
+    flex: 1;
 }
 
 .home-image {

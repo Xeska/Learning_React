@@ -5,9 +5,8 @@
   font-family: 'Courier New', Courier, monospace;
 }
 
-#root {
-  min-height: 100vh;
+#root > div {
   display: flex;
   flex-direction: column;
+  height: 100vh;
 }
-
