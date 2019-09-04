@@ -1,0 +1,43 @@
+.generator-content {
+    display: flex;
+    flex-flow: column;
+    height: 90%;
+    border-width: 5px;
+    border-style: solid;
+    border-image: linear-gradient(to bottom, black, rgb(245, 140, 3)) 1 100%;
+    border-radius: ;
+}
+
+.generator-content > img {
+    margin: 5px auto;
+    max-height: 100%;
+    width: auto;
+    min-width: 0;
+    min-height: 0;
+}
+
+.generator-btn {
+    height: 60px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: auto;
+}
+
+.generator-btn > button {
+    height: 60%;
+    width: 30%;
+    font-size: 15px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin: auto 15px;
+    border-radius: 4px;
+}
+
+.love-btn {
+    background: linear-gradient(to bottom, green, lightgreen);
+}
+
+.meh-btn {
+    background: linear-gradient(to bottom, red, pink);
+}
