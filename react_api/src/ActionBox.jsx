@@ -36,8 +36,6 @@ class ActionBox extends Component {
             :
             <FavList fav={fav} updateParentFav={this.updateFav} />
 
-        console.log('action box: ', this.state.fav)
-
         return (
             <div className='actionbox'>
                 <ActionNavbar page={page} updateParent={this.updatePage} />
